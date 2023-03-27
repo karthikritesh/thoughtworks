@@ -1,0 +1,23 @@
+apiVersion: app/V1
+kind: Deployment
+metadata:
+  name: mediawiki-deploy
+  labels:
+    env: staging
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: mediawiki-deploy
+      env: staging
+  template:
+    metadata:
+      labels:
+        env: staging
+    spec:
+      containers:
+        - name: mediawiki-pod
+          image: mediawiki:latest
+          ports:
+            - containerPort: 80
+              name: http
