@@ -1,0 +1,25 @@
+apiVersion: app/V1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    env: staging
+spec:
+  selector:
+    app: mysql-db
+  template:
+    metadata:
+      name: mysql-db
+      labels:
+        env: staging
+    spec:
+      containers:
+        - name: mysql-db
+          image: mysql
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_USER
+              value: root
+            - name: MYSQL_ROOT_PASSWORD
+              value: "1234"

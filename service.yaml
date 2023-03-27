@@ -1,0 +1,27 @@
+apiVersion: app/V1
+kind: Service
+metadata:
+  name: mediawiki
+  labels:
+    env: staging
+spec:
+  selector:
+    labels:
+      env: staging
+  ports:
+    - port: 80
+      targetPort: http
+  type: LoadBalancer
+---
+apiVersion: app/V1
+kind: Service
+metadata:
+  name: mysql
+  labels:
+    env: staging
+spec:
+  selector:
+    app: web-sql
+  ports:
+    - protocol: "TCP"
+      port: 3306
