@@ -1,0 +1,17 @@
+name: Test actions check
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run some bash commands
+        run: |
+          mkdir temp
+          ls -ltrh | grep temp
