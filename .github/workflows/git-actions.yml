@@ -14,4 +14,4 @@ jobs:
       - name: Run some bash commands
         run: |
           mkdir temp
-          ls -ltrh | grep temp
+          ls | grep temp
