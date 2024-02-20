@@ -7,11 +7,13 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted, IND11-L-1LRH3F3]
+    runs-on: ${{ github.event.inputs.runner }}
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Set up the runner
+        run: echo "Setting up the runner"
       
       - name: Run some bash commands
         run: |
           mkdir temp
-          ls | grep temp
