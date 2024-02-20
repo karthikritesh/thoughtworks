@@ -8,7 +8,9 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted-${{ github.event.inputs.runner }}
+    runs-on: 
+      - self-hosted
+      - ${{ github.event.inputs.runner }}
     steps:
       - uses: actions/checkout@v4
       
