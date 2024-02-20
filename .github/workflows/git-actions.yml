@@ -1,9 +1,10 @@
 name: Test actions check
 on:
-  push:
-    branches: main
-  pull_request:
-    branches: main
+  workflow_dispatch:
+    inputs:
+      runner:
+        description: 'Enter the desired runner'
+        required: true
 
 jobs:
   build:
