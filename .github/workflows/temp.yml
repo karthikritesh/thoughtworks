@@ -1,0 +1,28 @@
+name: "Pull request check and Semantic Update"
+on:
+  pull_request:
+  push:
+    branches: [main]
+env:
+  NODE_VERSION: 20.x
+jobs:
+  pr-checks:
+    name: Validate PR title
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the Pull Request title
+        run: |
+          echo "HI"
+
+  cypress-run:
+    needs: pr-checks
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    name: Semantic Update
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+     
