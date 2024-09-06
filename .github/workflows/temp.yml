@@ -12,8 +12,17 @@ jobs:
     if: github.ref != 'refs/heads/main'
     steps:
       - name: Check the Pull Request title
-        run: |
-          echo "HI"
+        uses: amannn/action-semantic-pull-request@v5
+        with:
+          types: |
+            Fix
+            Breaking
+            Build
+            Chore
+            Security
+            New
+            Update
+            Upgrade
 
   cypress-run:
     needs: pr-checks
