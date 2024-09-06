@@ -22,7 +22,9 @@ jobs:
             New
             Update
             Upgrade
-
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          
   cypress-run:
     needs: pr-checks
     runs-on: ubuntu-latest
