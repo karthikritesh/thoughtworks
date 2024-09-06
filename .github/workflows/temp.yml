@@ -9,7 +9,6 @@ jobs:
   pr-checks:
     name: Validate PR title
     runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/main'
     steps:
       - name: Check the Pull Request title
         uses: amannn/action-semantic-pull-request@v5
